@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Assessment</title>
+    <link rel="stylesheet" href="style6.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+        .btn {
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #e6004c;
+        }
+        
+        #status-message {
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .btn {
+            background-color: #1dd1a1;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #1b9071;
+        }
+        .submit-button {
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #1dd1a1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            background-color: #1b9071;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="assessment-container">
+        <h1>Mental Health Assessment</h1>
+        <h3>Answer the following questions honestly to understand your mental well-being.</h3>
+        
+        <div id="status-message" class="hidden"></div>
+        
+        <div id="login-required" class="hidden">
+            <p>Please login to take the assessment.</p>
+            <button type="button" class="btn" onclick="window.location.href='login.html'">Login</button>
+        </div>
+ 
+        <form id="assessment-form">
+            <input type="hidden" id="set-number" value="1">
+            
+            <!-- First Set of Questions (Page 1) -->
+            <div id="page1">
+                <div class="question-box">
+                    <p>1. How often do you feel overwhelmed with daily tasks?</p>
+                    <label><input type="radio" name="q1" value="Always"> Always</label>
+                    <label><input type="radio" name="q1" value="Often"> Often</label>
+                    <label><input type="radio" name="q1" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q1" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>2. Do you experience difficulty sleeping?</p>
+                    <label><input type="radio" name="q2" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q2" value="No"> No</label>
+                    <label><input type="radio" name="q2" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>3. Do you feel anxious or stressed frequently?</p>
+                    <label><input type="radio" name="q3" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q3" value="No"> No</label>
+                    <label><input type="radio" name="q3" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>4. How often do you engage in activities that make you happy?</p>
+                    <label><input type="radio" name="q4" value="Daily"> Daily</label>
+                    <label><input type="radio" name="q4" value="Few times a week"> Few times a week</label>
+                    <label><input type="radio" name="q4" value="Rarely"> Rarely</label>
+                    <label><input type="radio" name="q4" value="Never"> Never</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>5. Do you feel lonely or isolated?</p>
+                    <label><input type="radio" name="q5" value="Always"> Always</label>
+                    <label><input type="radio" name="q5" value="Often"> Often</label>
+                    <label><input type="radio" name="q5" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q5" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>6. Do you find it hard to concentrate or stay focused?</p>
+                    <label><input type="radio" name="q6" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q6" value="No"> No</label>
+                    <label><input type="radio" name="q6" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>7. How often do you feel physically tired even after getting enough rest?</p>
+                    <label><input type="radio" name="q7" value="Always"> Always</label>
+                    <label><input type="radio" name="q7" value="Often"> Often</label>
+                    <label><input type="radio" name="q7" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q7" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>8. Do you feel emotionally supported by friends or family?</p>
+                    <label><input type="radio" name="q8" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q8" value="No"> No</label>
+                    <label><input type="radio" name="q8" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>9. How often do you engage in self-care or relaxation activities?</p>
+                    <label><input type="radio" name="q9" value="Daily"> Daily</label>
+                    <label><input type="radio" name="q9" value="Few times a week"> Few times a week</label>
+                    <label><input type="radio" name="q9" value="Rarely"> Rarely</label>
+                    <label><input type="radio" name="q9" value="Never"> Never</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>10. Do you feel hopeful about the future?</p>
+                    <label><input type="radio" name="q10" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q10" value="No"> No</label>
+                    <label><input type="radio" name="q10" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <button type="button" class="submit-button" onclick="showPage2()">Next</button>
+                <button type="button" class="btn" onclick="window.location.href='home.html'">Back</button>
+            </div>
+ 
+            <!-- Second Set of Questions (Page 2) -->
+            <div id="page2" class="hidden">
+                <div class="question-box">
+                    <p>11. How often do you feel energetic and full of vitality?</p>
+                    <label><input type="radio" name="q11" value="Always"> Always</label>
+                    <label><input type="radio" name="q11" value="Often"> Often</label>
+                    <label><input type="radio" name="q11" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q11" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>12. How often do you feel overwhelmed by your responsibilities?</p>
+                    <label><input type="radio" name="q12" value="Always"> Always</label>
+                    <label><input type="radio" name="q12" value="Often"> Often</label>
+                    <label><input type="radio" name="q12" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q12" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>13. How often do you feel hopeful about the future?</p>
+                    <label><input type="radio" name="q13" value="Always"> Always</label>
+                    <label><input type="radio" name="q13" value="Often"> Often</label>
+                    <label><input type="radio" name="q13" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q13" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>14. How often do you find it difficult to manage emotions?</p>
+                    <label><input type="radio" name="q14" value="Always"> Always</label>
+                    <label><input type="radio" name="q14" value="Often"> Often</label>
+                    <label><input type="radio" name="q14" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q14" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>15. Do you feel positive about your current mental state?</p>
+                    <label><input type="radio" name="q15" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q15" value="No"> No</label>
+                    <label><input type="radio" name="q15" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <button type="button" class="submit-button" onclick="showPage3()">Next</button>
+                <button type="button" class="submit-button" onclick="showPage1()">Back</button>
+            </div>
+ 
+            <!-- Third Set of Questions (Page 3) -->
+            <div id="page3" class="hidden">
+                <div class="question-box">
+                    <p>16. How often do you experience physical symptoms related to stress (e.g., headaches, muscle tension)?</p>
+                    <label><input type="radio" name="q16" value="Always"> Always</label>
+                    <label><input type="radio" name="q16" value="Often"> Often</label>
+                    <label><input type="radio" name="q16" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q16" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>17. How often do you find yourself feeling emotionally distant from others?</p>
+                    <label><input type="radio" name="q17" value="Always"> Always</label>
+                    <label><input type="radio" name="q17" value="Often"> Often</label>
+                    <label><input type="radio" name="q17" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q17" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>18. Do you feel that you have a support system in place?</p>
+                    <label><input type="radio" name="q18" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q18" value="No"> No</label>
+                    <label><input type="radio" name="q18" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>19. How often do you engage in activities that help reduce your stress?</p>
+                    <label><input type="radio" name="q19" value="Daily"> Daily</label>
+                    <label><input type="radio" name="q19" value="Few times a week"> Few times a week</label>
+                    <label><input type="radio" name="q19" value="Rarely"> Rarely</label>
+                    <label><input type="radio" name="q19" value="Never"> Never</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>20. How often do you feel calm and peaceful?</p>
+                    <label><input type="radio" name="q20" value="Always"> Always</label>
+                    <label><input type="radio" name="q20" value="Often"> Often</label>
+                    <label><input type="radio" name="q20" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q20" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <button type="submit" class="submit-button">Submit</button>
+                <button type="button" class="submit-button" onclick="showPage2()">Back</button>
+            </div>
+            
+            <!-- Set 2 Questions (shown after 60 seconds) -->
+            <div id="set2" class="hidden">
+                <h2>Follow-up Assessment</h2>
+                <p>Please complete this follow-up assessment to track your progress.</p>
+                
+                <div class="question-box">
+                    <p>21. Do you often have trouble relaxing or unwinding after work?</p>
+                    <label><input type="radio" name="q21" value="Always"> Always</label>
+                    <label><input type="radio" name="q21" value="Often"> Often</label>
+                    <label><input type="radio" name="q21" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q21" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>22. Do you feel you struggle with balancing personal life and work?</p>
+                    <label><input type="radio" name="q22" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q22" value="No"> No</label>
+                    <label><input type="radio" name="q22" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>23. Do you feel a sense of accomplishment in your daily life?</p>
+                    <label><input type="radio" name="q23" value="Always"> Always</label>
+                    <label><input type="radio" name="q23" value="Often"> Often</label>
+                    <label><input type="radio" name="q23" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q23" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>24. How often do you feel that your mental health is improving?</p>
+                    <label><input type="radio" name="q24" value="Always"> Always</label>
+                    <label><input type="radio" name="q24" value="Often"> Often</label>
+                    <label><input type="radio" name="q24" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q24" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>25. How often do you engage in hobbies or activities that improve your mood?</p>
+                    <label><input type="radio" name="q25" value="Daily"> Daily</label>
+                    <label><input type="radio" name="q25" value="Few times a week"> Few times a week</label>
+                    <label><input type="radio" name="q25" value="Rarely"> Rarely</label>
+                    <label><input type="radio" name="q25" value="Never"> Never</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>26. Do you feel like you're in control of your emotional health?</p>
+                    <label><input type="radio" name="q26" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q26" value="No"> No</label>
+                    <label><input type="radio" name="q26" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>27. How often do you feel a sense of peace with your personal choices?</p>
+                    <label><input type="radio" name="q27" value="Always"> Always</label>
+                    <label><input type="radio" name="q27" value="Often"> Often</label>
+                    <label><input type="radio" name="q27" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q27" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>28. How often do you feel that you can manage the challenges in your life?</p>
+                    <label><input type="radio" name="q28" value="Always"> Always</label>
+                    <label><input type="radio" name="q28" value="Often"> Often</label>
+                    <label><input type="radio" name="q28" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q28" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>29. How often do you feel your physical health affects your mental health?</p>
+                    <label><input type="radio" name="q29" value="Always"> Always</label>
+                    <label><input type="radio" name="q29" value="Often"> Often</label>
+                    <label><input type="radio" name="q29" value="Sometimes"> Sometimes</label>
+                    <label><input type="radio" name="q29" value="Rarely"> Rarely</label>
+                </div>
+ 
+                <div class="question-box">
+                    <p>30. Do you feel comfortable seeking help when needed?</p>
+                    <label><input type="radio" name="q30" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q30" value="No"> No</label>
+                    <label><input type="radio" name="q30" value="Sometimes"> Sometimes</label>
+                </div>
+ 
+                <button type="submit" class="submit-button">Submit</button>
+                <button type="button" class="btn" onclick="window.location.href='home.html'">Back</button>
+            </div>
+        </form>
+        <div style="display: flex; justify-content: center;">
+            <button class="btn" onclick="window.location.href='home.html'">Back</button>
+        </div>
+    </div>
+ 
+    <script>
+        // Check if user is logged in
+        const token = localStorage.getItem('token');
+        if (!token) {
+            document.getElementById('assessment-form').classList.add('hidden');
+            document.getElementById('login-required').classList.remove('hidden');
+        } else {
+            // Check assessment status
+            checkAssessmentStatus();
+        }
+        
+        function checkAssessmentStatus() {
+            fetch('/assessment-status', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('token')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show status message if needed
+                const statusMessage = document.getElementById('status-message');
+                
+                if (data.completed) {
+                    // User has completed both sets
+                    // Check if 10 days have passed since completion
+                    if (data.daysUntilReset <= 0) {
+                        // 10 days have passed, user can take the assessment again
+                        statusMessage.classList.remove('hidden');
+                        statusMessage.innerHTML = 'You can now take the assessment again. Your previous assessment was completed more than 10 days ago.';
+                        document.getElementById('set-number').value = '1';
+                        showPage1();
+                    } else {
+                        // Less than 10 days have passed
+                        statusMessage.classList.remove('hidden');
+                        statusMessage.innerHTML = `You have completed all assessment sets. You can take the assessment again in ${data.daysUntilReset} day(s).`;
+                        document.getElementById('assessment-form').classList.add('hidden');
+                    }
+                    return;
+                }
+           
+                if (data.nextSet === 2) {
+                    // User has completed set 1 and should take set 2
+                    if (data.canTakeSet2) {
+                        // Show set 2
+                        document.getElementById('set-number').value = '2';
+                        hideAllPages();
+                        document.getElementById('set2').classList.remove('hidden');
+                        
+                        // Display message that first set was completed
+                        statusMessage.classList.remove('hidden');
+                        statusMessage.innerHTML = 'You have completed the first assessment set. Now please complete the second set.';
+                    } else {
+                        // User needs to wait
+                        statusMessage.classList.remove('hidden');
+                        statusMessage.innerHTML = 'You have completed the first assessment set. Please wait for the timer to complete the second set.';
+                        document.getElementById('assessment-form').classList.add('hidden');
+                        startTimer(data.minutesRemaining);
+                    }
+                } else {
+                    // Show set 1 (first time)
+                    document.getElementById('set-number').value = '1';
+                    showPage1();
+                    
+                    // Reset any previous status messages
+                    statusMessage.classList.add('hidden');
+                    statusMessage.innerHTML = '';
+                }
+            })
+            .catch(error => {
+                console.error('Error checking assessment status:', error);
+                alert('Error checking your assessment status. Please try again.');
+            });
+        }
+        
+        function startTimer(minutesRemaining) {
+            const statusMessage = document.getElementById('status-message');
+            const timerElement = document.createElement('div');
+            timerElement.id = 'timer';
+            statusMessage.appendChild(timerElement);
+            
+            // Set a fixed 60-second timer regardless of minutesRemaining
+            let timeLeft = 60;
+
+            const timerInterval = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+
+                timerElement.innerHTML = `Time remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timerElement.innerHTML = 'Time is up! You can now take the second assessment.';
+                    
+                    // Show the assessment form again and display Set 2
+                    document.getElementById('assessment-form').classList.remove('hidden');
+                    document.getElementById('set-number').value = '2';
+                    hideAllPages();
+                    document.getElementById('set2').classList.remove('hidden');
+                    
+                    // Clear or update the status message
+                    statusMessage.innerHTML = 'Please complete the second assessment set:';
+                } else {
+                    timeLeft--;
+                }
+            }, 1000);
+        }
+        
+        function hideAllPages() {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.add('hidden');
+            document.getElementById('set2').classList.add('hidden');
+        }
+        
+        function validatePage(pageId) {
+            let page = document.getElementById(pageId);
+            let questions = page.querySelectorAll('.question-box');
+            
+            for (let question of questions) {
+                let inputs = question.querySelectorAll('input[type="radio"]');
+                let isChecked = Array.from(inputs).some(input => input.checked);
+                
+                if (!isChecked) {
+                    alert("Please answer all questions before proceeding.");
+                    return false;
+                }
+            }
+            return true;
+        }
+    
+        function showPage1() {
+            hideAllPages();
+            document.getElementById('page1').classList.remove('hidden');
+        }
+    
+        function showPage2() {
+            if (validatePage('page1')) {
+                hideAllPages();
+                document.getElementById('page2').classList.remove('hidden');
+            }
+        }
+    
+        function showPage3() {
+            if (validatePage('page2')) {
+                hideAllPages();
+                document.getElementById('page3').classList.remove('hidden');
+            }
+        }
+    
+        // Form submission handling
+        document.getElementById("assessment-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get the current set number
+            const setNumber = parseInt(document.getElementById('set-number').value);
+            
+            // For set 1, validate page 3
+            if (setNumber === 1 && !validatePage('page3')) {
+                return;
+            }
+            
+            // For set 2, validate the set2 div
+            if (setNumber === 2 && !validatePage('set2')) {
+                return;
+            }
+            
+            // Collect all form data
+            const formData = new FormData(this);
+            const responses = {};
+            
+            for (let [key, value] of formData.entries()) {
+                responses[key] = value;
+            }
+            
+            // Add reset flag to indicate the system should set a 10-day reset timer
+            const isCompleting = (setNumber === 2);
+            const resetDays = 10; // Define reset period explicitly
+
+            // Send data to server
+            fetch('/save-assessment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('token')
+                },
+                body: JSON.stringify({
+                    responses,
+                    setNumber,
+                    setResetTimer: isCompleting, // Flag to indicate if we should set the reset timer
+                    resetDays: resetDays // Include the reset period in the request
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message.includes('successful')) {
+                    if (isCompleting) {
+                        // Use the explicit resetDays value in the alert message
+                        alert(`Assessment completed successfully! You can take the assessment again in 10 days.`);
+                    } else {
+                        alert('Assessment saved successfully!');
+                    }
+                    window.location.href = 'results.html';
+                } else {
+                    alert('Error saving assessment. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error saving assessment. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>

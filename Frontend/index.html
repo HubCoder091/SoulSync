@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soulsync</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background Image */
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('Images/image.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            position: relative; /* Needed for absolute positioning of links */
+        }
+
+        /* Container for Content */
+        .content {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            padding: 40px 20px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Title Styling */
+        .text {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fbd5d5; /* Highlight color */
+        }
+
+        /* Paragraph Styling */
+        .paragraph {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 300;
+            color: #ddd;
+        }
+
+        /* Button Styling */
+        .start-button {
+            font-size: 1.3rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            background-color: #4c4b4b;
+            color: #fbd5d5;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px; /* Adjusting the space between the text and button */
+        }
+
+        .start-button:hover {
+            background-color: #1d1b1b;
+            transform: scale(1.05);
+        }
+
+        /* Authentication Links */
+        .auth {
+            position: absolute;
+            bottom: 20px; /* Moves the links to the bottom */
+            left: 20px; /* Moves them to the left */
+            font-size: 1rem;
+            text-align: left; /* Ensures the links are aligned to the left */
+        }
+
+        .auth a {
+            color: #373232;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .auth a:hover {
+            color: #000000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .text {
+                font-size: 2.5rem;
+            }
+
+            .paragraph {
+                font-size: 1rem;
+            }
+
+            .start-button {
+                font-size: 1.2rem;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="text">Soulsync</div>
+        <p class="paragraph">Soulsync is a mental health and well-being platform <br>that helps achieve emotional balance through self-assessments,<br>therapy resources, and an AI-powered chatbot.</p>
+        
+        <!-- Start Button -->
+        <button class="start-button" onclick="window.location.href='login.html';">Start Now</button>
+    </div>
+
+    <!-- Authentication Links at Bottom Left -->
+    <div class="auth">
+        <a href="login.html">Login</a>| <a href="signup.html">Signup</a>
+    </div>
+
+</body>
+</html>

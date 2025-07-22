@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soothing Sounds</title>
+    <link rel="stylesheet" href="tools.css">
+
+    <style>
+                .btn {
+            background-color: #8d6e63;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #6d4c41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Soothing Sounds</h1>
+        <p>Select a relaxing sound to play:</p>
+
+        <div class="sound-controls">
+            <button onclick="playSound('rain')">🌧 Rain</button>
+            <button onclick="playSound('ocean')">🌊 Ocean Waves</button>
+            <button onclick="playSound('birds')">🐦 Birds Chirping</button>
+            <button onclick="playSound('fireplace')">🔥 Fireplace</button>
+            <button onclick="playSound('wind')">🌬 Wind Blowing</button>
+            <button onclick="stopSound()">⏹ Stop</button>
+        </div>
+
+        <audio id="audioPlayer"></audio>
+
+        <div style="display: flex; justify-content: center;">
+            <button class="btn" onclick="window.location.href='R_Tools.html'">Back to home</button>
+        </div>
+
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById("audioPlayer");
+        const sounds = {
+            rain: "sounds/rain.mp3",
+            ocean: "sounds/ocean.mp3",
+            birds: "sounds/birds.mp3",
+            fireplace: "sounds/fireplace.mp3",
+            wind: "sounds/wind.mp3"
+        };
+
+        function playSound(sound) {
+            audioPlayer.src = sounds[sound];
+            audioPlayer.play();
+            audioPlayer.loop = true;
+        }
+
+        function stopSound() {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulSync - Home</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Georgia', sans-serif;
+            background-image: url('Images/homeimage.jpg'); /* Your background image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Top Navigation */
+        .top-bar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .user-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px 30px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #fdf5d3;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            color: #f5f0f0;
+        }
+
+        /* Navigation Cards */
+        .navigation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .nav-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .nav-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fbd5d5;
+        }
+
+        .nav-card p {
+            font-size: 1rem;
+            color: #b2b2b2;
+        }
+
+        .nav-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            font-size: 1.1rem;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            background-color: #4c4b4b;
+            color: #fbd5d5;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+
+        .logout-btn:hover {
+            background-color: #292828;
+            color: #333;
+            transform: scale(1.05);
+        }
+
+        .logout-btn:focus {
+            outline: none;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+
+        .user-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }    
+
+        #username {
+            font-size: 18px;
+            font-weight: bold;
+            color: black; /* Set username text to black */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .dashboard-container {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .nav-card p {
+                font-size: 0.9rem;
+            }
+
+            .logout-btn {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+
+            .top-bar {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+
+            .user-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - SoulSync</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- User Display -->
+    <div class="top-bar">
+        <div class="user-icon">🙋‍♂️</div>
+        <span id="username">Hi, Dude✌</span> 
+    </div>
+
+    <div class="dashboard-container">
+        <h1>Welcome to SoulSync</h1>
+        <p>Your mental wellness companion</p>
+
+        <div class="navigation">
+            <div class="nav-card" onclick="window.location.href='journal.html';">
+                <h3>Journal</h3>
+                <p>Journal your Heart Out!</p>
+            </div>
+
+            <div class="nav-card" onclick="window.open('https://soulsync-d34673.zapier.app/', '_blank');">
+                <h3>AI Chatbot</h3>
+                <p>I will assist You!</p>
+            </div>
+            
+            <div class="nav-card" onclick="window.location.href='assessment.html';">
+                <h3>Self-Assessment</h3>
+                <p>Take this Test to know Your Mental Health!</p>
+            </div>
+
+            <div class="nav-card" onclick="window.location.href='therapy.html';">
+                <h3>Therapy Resources</h3>
+                <p>Want some Therapy Resources?</p>
+            </div>
+
+            <div class="nav-card" onclick="window.location.href='R_Tools.html';">
+                <h3>Relaxation Tools</h3>
+                <p>Want some Relaxation?</p>
+            </div>
+
+            <div class="nav-card" onclick="window.location.href='mood.html';">
+                <h3>Your Mood</h3>
+                <p>Know Your Mood</p>
+            </div>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                window.location.href = "login.html"; // Redirect if not logged in
+            } else {
+                fetchUserInfo();
+            }
+        });
+    
+        function fetchUserInfo() {
+            const token = localStorage.getItem("token");
+            fetch("http://localhost:5000/user", {
+                method: "GET",
+                headers: {
+                    "Authorization": token,
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.username) {
+                    document.getElementById("username").textContent = `Hi, ${data.username} ✌`;
+                }
+            })
+            .catch(error => console.error("Error fetching user info:", error));
+        }
+    
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "login.html";
+        }
+    </script>
+    
+    
+</body>
+</html>

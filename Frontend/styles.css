@@ -1,0 +1,79 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Background Image */
+.background {
+    background: url('Images/image.jpg') no-repeat center center/cover; /* Replace 'image.jpg' with your actual image path */
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+.content {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.text {
+    font-family: cursive;
+    background: rgba(236, 100, 100, 0.575);
+    clip-path: ellipse(50% 30% at 50% 50%);
+    padding: 30px 40px;
+    color: black;
+    text-align: center;
+}
+
+.paragraph {
+    font-family: cursive;
+    color: black;
+    max-width: 500px;
+}
+
+.start {
+    position: absolute;
+    bottom: 20px;  /* Move it to the bottom */
+    left: 20px;    /* Move it to the left */
+}
+
+.start-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #E60000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    visibility: visible;
+}
+
+.start-button:hover {
+    background-color: #b50000;
+}
+
+/* Position Login/Signup at the bottom-left */
+.auth {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.auth a {
+    color:black;
+    font-size: 18px;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.auth a:hover {
+    text-decoration: underline;
+}

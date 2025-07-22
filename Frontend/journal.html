@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Journal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        /* Body and Background */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('Images/journal.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* Login Button */
+        .login-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4c4b4b;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #1d1b1b;
+        }
+
+        /* Journal Container */
+        .journal-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 750px;
+            width: 95%;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.5rem;
+            color: #343434;
+            margin-bottom: 20px;
+        }
+
+        /* Textarea */
+        textarea {
+            width: 90%;
+            height: 250px;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #adadad;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 20px;
+            resize: none;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            border-color: #f0a0a0;
+        }
+
+        /* Save Button */
+        .save-btn, .btn {
+            background-color: #4c4b4b;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .save-btn:hover, .btn:hover {
+            background-color: #1d1b1b;
+        }
+
+        /* Journal Entries Box */
+        .journal-entries-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 750px;
+            width: 95%;
+            margin-top: 20px;
+            text-align: left;
+            backdrop-filter: blur(5px);
+        }
+
+        .journal-entry {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="login-btn" onclick="goToLogin()">Login</button>
+    <div class="journal-container">
+        <h1>Welcome to Your Journal</h1>
+        <textarea id="journal-entry" placeholder="Start writing your thoughts here..."></textarea>
+        <button class="save-btn" onclick="saveJournal()">Save Entry</button>
+        <button class="btn" onclick="goToHome()">Back</button>
+    </div>
+
+    <!-- Journal Entries Display Box -->
+    <div class="journal-entries-container">
+        <h2>Previous Entries</h2>
+        <div id="journal-entries"></div>
+    </div>
+    <script>
+        function goToLogin() {
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <script>
+        function saveJournal() {
+            const token = localStorage.getItem("token");
+            const journalText = document.getElementById("journal-entry").value;
+    
+            if (!token) {
+                alert("Please log in first.");
+                return;
+            }
+            if (journalText.trim() === "") {
+                alert("Please write something before saving.");
+                return;
+            }
+    
+            fetch('/save-journal', {
+                method: 'POST',
+                headers: {
+                    'Authorization': token,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: journalText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                document.getElementById("journal-entry").value = "";
+                fetchJournals();
+            })
+            .catch(error => console.error('Error saving journal:', error));
+        }
+    
+        function fetchJournals() {
+            const token = localStorage.getItem("token");
+    
+            if (!token) {
+                alert("Please log in first.");
+                return;
+            }
+    
+            fetch('/journals', {
+                method: 'GET',
+                headers: { 'Authorization': token }
+            })
+            .then(response => response.json())
+            .then(entries => {
+                const journalContainer = document.getElementById("journal-entries");
+                journalContainer.innerHTML = "";
+    
+                if (entries.length === 0) {
+                    journalContainer.innerHTML = "<p>No journal entries found.</p>";
+                    return;
+                }
+    
+                entries.forEach(entry => {
+                    const entryElement = document.createElement("div");
+                    entryElement.classList.add("journal-entry");
+                    entryElement.innerHTML = `<strong>${entry.username}:</strong> ${entry.content} <br><small>${new Date(entry.date).toLocaleString()}</small>`;
+                    journalContainer.appendChild(entryElement);
+                });
+            })
+            .catch(error => console.error('Error fetching journals:', error));
+        }
+    
+        window.onload = fetchJournals;
+
+        function goToHome() {
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+</html>

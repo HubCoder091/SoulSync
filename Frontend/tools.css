@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('Images/relax.jpg');
+    background-size: Firefox;
+    background-color: #E3F2FD;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #deb573;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    color: #0e0d0d;
+}
+.tool-box {
+    background: #f6e6bd;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+h2 {
+    color: #1e1b1b;
+}
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #0288D1;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn:hover {
+    background-color: #01579B;
+}
+.breath-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.breath-circle {
+    width: 100px;
+    height: 100px;
+    background-color: #797874;
+    border-radius: 50%;
+    animation: breathe 6s infinite ease-in-out;
+}
+
+@keyframes breathe {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.8); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+.sound-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.sound-controls button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sound-controls button:hover {
+    background-color: #388E3C;
+}
+.styled-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    font-size: 16px; /* Text size */
+    padding: 12px 24px; /* Padding around the text */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.styled-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.styled-button:focus {
+    outline: none; /* Remove outline on click */
+}

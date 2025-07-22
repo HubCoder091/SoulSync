@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing Exercise</title>
+    <link rel="stylesheet" href="tools.css">
+<style>
+    .btn {
+        background-color: #8d6e63;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background-color 0.3s;
+    }
+    .btn:hover {
+        background-color: #6d4c41;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Breathing Exercise</h1>
+        <p>Breathe in as the circle expands, and breathe out as it contracts.</p>
+        <div class="breath-container">
+            <div class="breath-circle" id="breathCircle"></div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <button class="btn" onclick="window.location.href='R_Tools.html'">Back to home</button>
+        </div>
+    </div>
+
+    <script>
+        const circle = document.getElementById("breathCircle");
+        const colors = ["#0288D1", "#FF4081", "#4CAF50", "#FF9800", "#9C27B0"]; // Color options
+        let colorIndex = 0;
+
+        function changeColor() {
+            colorIndex = (colorIndex + 1) % colors.length;
+            circle.style.backgroundColor = colors[colorIndex];
+        }
+
+        setInterval(changeColor, 3000); // Change color every 3 seconds
+    </script>
+</body>
+</html>

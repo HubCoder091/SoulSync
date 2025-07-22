@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Affirmations</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('Images/Affirmations.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .affirmation-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-size: 26px;
+            color: #333;
+        }
+        .affirmation {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #444;
+            transition: opacity 0.5s ease-in-out;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            background: #1dd1a1;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+        .btn {
+            background-color: #1dd1a1;
+            color: #fff;
+            padding: 11px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1b9071;
+        }
+    </style>
+</head>
+<body>
+    <div class="affirmation-container">
+        <h1>🌿 Daily Affirmation 🌿</h1>
+        <div class="affirmation" id="affirmation">Click the button to see your affirmation.</div>
+        <button onclick="showAffirmation()">New Affirmation</button>
+        <button class="btn" onclick="window.location.href='R_Tools.html'">Back</button>
+    </div>
+
+    <script>
+        const affirmations = [
+            "I am calm, peaceful, and centered.",
+            "My breath is slow and steady, bringing me peace.",
+            "I release all tension and embrace relaxation.",
+            "My mind is at ease, and my body is relaxed.",
+            "I am safe and protected in this moment.",
+            "Peace flows through me with every breath.",
+            "I deserve rest and tranquility.",
+            "I choose to release worry and stress.",
+            "My heart is light, and my mind is clear.",
+            "I am present in this peaceful moment.",
+            "I am worthy of love and kindness.",
+            "I am enough just as I am.",
+            "My self-worth is not defined by others.",
+            "I believe in myself and my abilities.",
+            "I radiate confidence and strength.",
+            "I accept myself unconditionally.",
+            "I am proud of my progress, big and small.",
+            "I deserve happiness and success.",
+            "My uniqueness is my strength.",
+            "I am growing into the best version of myself.",
+            "I am grateful for today and all its blessings.",
+            "Every challenge is an opportunity for growth.",
+            "My life is filled with joy and purpose.",
+            "I attract positivity into my life.",
+            "I choose to focus on what makes me happy.",
+            "My heart is open to love and kindness.",
+            "I trust the journey of my life.",
+            "I embrace change with an open mind.",
+            "I am thankful for the little moments of joy.",
+            "The universe supports my highest good.",
+            "I am healing, and I trust the process.",
+            "My body and mind are resilient.",
+            "I forgive myself and release the past.",
+            "I am strong enough to overcome anything.",
+            "I listen to my body’s needs and honor them.",
+            "I deserve rest and recovery.",
+            "I am surrounded by love and support.",
+            "I release negativity and embrace peace.",
+            "My mind, body, and soul are in harmony.",
+            "I am at peace with my journey.",
+            "My future is bright and full of possibilities.",
+            "I trust that everything is unfolding perfectly.",
+            "I am excited for what’s to come.",
+            "I am in control of my happiness.",
+            "My dreams are valid, and I am capable.",
+            "I have the power to create the life I desire.",
+            "Every day brings new opportunities.",
+            "I welcome abundance and success into my life.",
+            "I am grateful for the lessons of today.",
+            "I am ready to embrace all the good coming my way.",
+            "I breathe in peace and exhale stress.",
+            "Calness fills my mind and body.",
+            "I welcome serenity into my life.",
+            "My heart beats with ease and harmony.",
+            "I trust in the flow of life.",
+            "Tranquility surrounds me in every moment.",
+            "I release tension and invite relaxation.",
+            "I am grounded, centered, and at peace.",
+            "My inner calm radiates outward.",
+            "I embrace stillness and find clarity.",
+            "Peace begins within me.",
+            "I nourish my soul with kindness and love.",
+            "Every breath brings me deeper relaxation.",
+            "My mind is clear, and my spirit is light.",
+            "I surrender to the present moment.",
+            "I am a beacon of calm and balance.",
+            "Stillness empowers my soul.",
+            "Joy and peace are my natural states.",
+            "I cultivate patience and inner harmony.",
+            "My soul is aligned with tranquility.",
+            "I move through life with grace and ease.",
+            "My thoughts are gentle and kind.",
+            "I create space for peace in my life.",
+            "Serenity flows effortlessly through me.",
+            "I embrace each moment with a peaceful heart.",
+            "My energy is calm, centered, and strong.",
+            "I choose to dwell in positivity and light.",
+            "My presence is filled with peaceful energy.",
+            "I flow with ease and trust the process.",
+            "Love and calmness guide my way."
+        ];
+
+        function showAffirmation() {
+            const randomIndex = Math.floor(Math.random() * affirmations.length);
+            const affirmationText = document.getElementById("affirmation");
+            affirmationText.style.opacity = 0;
+            setTimeout(() => {
+                affirmationText.textContent = affirmations[randomIndex];
+                affirmationText.style.opacity = 1;
+            }, 500);
+        }
+    </script>
+</body>
+</html>
