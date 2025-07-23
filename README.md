@@ -1,5 +1,3 @@
-Here’s a neatly structured and formatted version of your **SoulSync - Mental Wellness Companion** project documentation:
-
 # 📘 SoulSync - Mental Wellness Companion
 
 **SoulSync** is a personal mental wellness web application that helps users securely log in, view personalized content, and manage their mental health using tools like journals, self-assessments, therapy resources, and relaxation activities.
@@ -157,5 +155,3 @@ Rohith — a developer passionate about mental wellness and building creative te
 ## 📃 License
 
 Released under the **MIT License**.
-
-Let me know if you'd like this exported into a `.md` format or if you'd like a custom logo/banner for your README!
