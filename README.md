@@ -24,6 +24,7 @@ SoulSync/
 │
 ├── .env                         # Environment variables (Mongo URI, JWT)
 └── README.md                    # Project documentation
+
 🚀 Features
 ✅ User Authentication
 
