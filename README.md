@@ -1,157 +1,139 @@
 📘 SoulSync - Mental Wellness Companion
-SoulSync is a personal mental wellness web application that helps users log in securely, view personalized content, and manage their mental health using tools like journals, self-assessments, therapy resources, and relaxation activities.
+SoulSync is a personal mental wellness web application that helps users securely log in, view personalized content, and manage their mental health using tools like journals, self-assessments, therapy resources, and relaxation activities.
 
 📁 Project Structure
-bash
+text
 SoulSync/
 │
 ├── backend/
 │   └── server.js                # Express.js backend connected to MongoDB
 │
 ├── frontend/
-│   ├── home.html                # Home/Dashboard page (user info displayed)
-│   ├── login.html               # Login page (stores token in localStorage)
+│   ├── home.html                # Home/Dashboard page
+│   ├── login.html               # Login page
 │   ├── register.html            # Registration page
 │   ├── journal.html             # Journal tool
 │   ├── assessment.html          # Self-assessment tool
 │   ├── R_Tools.html             # Relaxation tools
 │   ├── mood.html                # Mood tracker
 │   ├── therapy.html             # Therapy resources
-│   ├── styles/                  # CSS files
-│   └── Images/                  # Background and UI images
+│   ├── styles/                  # CSS styles
+│   └── Images/                  # UI and background images
 │
-├── .env                         # Environment variables (Mongo URI, JWT)
+├── .env                         # Environment variables (Mongo URI, JWT secret)
 └── README.md                    # Project documentation
-
 🚀 Features
 ✅ User Authentication
+Registration and login using JWT tokens
 
-Registration and Login using JWT tokens
-
-Passwords stored securely using bcrypt
+Passwords hashed with bcrypt.js
 
 🧠 Mental Wellness Dashboard
+Journal Tool
 
-Journaling
+Self-Assessment
 
-Self-assessments
+Mood Tracking
 
-Therapy resources
+Relaxation Tools
 
-Relaxation tools and mood tracker
+Therapy Resources
 
-🙋‍♂️ Personalized Welcome
-
-Displays the logged-in user's name on the home page after verifying the token from local storage
+🙋‍♂️ Personalized User Experience
+Displays logged-in user’s name on the Home page after verifying token from localStorage.
 
 🛠️ Technologies Used
-Frontend: HTML, CSS, JavaScript
-
-Backend: Node.js, Express.js
-
-Database: MongoDB (Mongoose ODM)
-
-Authentication: JSON Web Tokens (JWT)
-
-Security: bcrypt.js for password hashing
-
-Communication: CORS for frontend-backend interaction
-
+Layer	Technology
+Frontend	HTML, CSS, JavaScript
+Backend	Node.js, Express.js
+Database	MongoDB with Mongoose ODM
+Auth	JSON Web Tokens (JWT)
+Security	bcrypt.js
+Communication	CORS middleware
 🔐 Environment Setup
 1. Clone the Repository
 bash
-Copy
-Edit
 git clone https://github.com/your-username/soulsync.git
 cd soulsync
-2. Setup Backend (server.js)
-Install required packages:
-
+2. Setup Backend
 bash
-Copy
-Edit
 cd backend
 npm install express mongoose bcryptjs jsonwebtoken cors dotenv
-Create .env file in the backend/ folder:
+Create a .env file inside the backend/ directory:
 
-env
-Copy
-Edit
+text
 MONGO_URI=mongodb://localhost:27017/soulsync
 JWT_SECRET=your_jwt_secret_key
 Start MongoDB locally:
 
 bash
-Copy
-Edit
 mongod
 Run the server:
 
 bash
-Copy
-Edit
 node server.js
-Server should run on: http://localhost:5000
+Server runs at: http://localhost:5000
 
 🖥️ Frontend Setup
-Open frontend/home.html in your browser directly or use a simple server:
+You can:
+
+Open frontend/home.html directly in a browser
+OR
+
+Use a live server:
 
 bash
-Copy
-Edit
 cd frontend
 npx live-server
-Or drag login.html into your browser if no server is used.
-
 🔐 Authentication Flow
-User logs in via login.html → receives JWT token.
+User logs in via login.html
 
-Token is stored in localStorage.
+Receives and stores JWT token into localStorage
 
-home.html fetches /user from backend with this token.
+home.html fetches /user with the token in headers
 
-Username is decoded and displayed in the top-right corner.
+Decoded username is displayed in the top-right corner (e.g., “Hi, username ✌”)
 
 📡 API Endpoints
 Method	Route	Description	Auth Required
-POST	/register	Register a new user	❌
-POST	/login	Log in and receive JWT	❌
-GET	/user	Get logged-in user's info	✅
-POST	/save-journal	Save a journal entry	✅
-GET	/journals	Get user's journal entries	✅
-
+POST	/register	Register a new user	❌ No
+POST	/login	Log in and receive JWT	❌ No
+GET	/user	Get user info via token	✅ Yes
+POST	/save-journal	Save journal entry	✅ Yes
+GET	/journals	Retrieve journal entries	✅ Yes
 🧪 Testing the Flow
-Open register.html and create a new account.
+Open register.html to create a new account
 
-Login using login.html and check DevTools > Application > Local Storage → token should be stored.
+Log in using login.html
 
-Open home.html. You should see "Hi, <username> ✌" in the top-right corner.
+Check the browser's DevTools → Application → Local Storage
 
-Use Journal, Relaxation Tools, or Assessment pages from dashboard.
+A token should be saved
 
-🚨 Common Issues
-Token not working?
-Check if Authorization header is being sent as Bearer <token> in JavaScript fetch.
+Open home.html, and you should see:
 
-CORS error?
-Ensure backend has cors() middleware enabled and running on port 5000.
+text
+Hi, <username> ✌
+Explore ➜ Journal, Mood Tracker, Relaxation Tools, etc.
 
-MongoDB not connecting?
-Make sure MongoDB service is running locally: mongod
-
+🚨 Common Issues & Fixes
+Issue	Solution
+Token not working?	Ensure you're sending Authorization: Bearer <token>
+CORS error?	Confirm that backend uses cors() middleware
+MongoDB not connecting?	Make sure mongod is running first
 ✅ Future Enhancements
-Add email support for verification.
+Email verification
 
-Add dark mode toggle.
+Dark mode toggle
 
-Include Google OAuth for login.
+Google OAuth login
 
-Save mood/assessment scores.
+Save mood & assessment scores
 
-Deploy on Render/Netlify + MongoDB Atlas.
+Deploy using MongoDB Atlas + Netlify/Render
 
 👨‍💻 Author
-Built by Rohith — a developer passionate about mental wellness and creative tech.
+Rohith — a developer passionate about mental wellness and building creative tech-driven tools that help people.
 
 📃 License
-MIT License
+Released under the MIT License.
