@@ -3,8 +3,6 @@ SoulSync is a personal mental wellness web application that helps users log in s
 
 📁 Project Structure
 bash
-Copy
-Edit
 SoulSync/
 │
 ├── backend/
